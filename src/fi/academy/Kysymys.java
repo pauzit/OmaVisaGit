@@ -41,12 +41,16 @@ public class Kysymys {
 
     @Override
     public String toString() {
-        return
-                kysymysteksti + '\n' +
-                 vastaukset.get(0)+ '\n'
-                + vastaukset.get(1)+'\n'
-                + vastaukset.get(2) +'\n';
-        //huom, tällä hetkellä ei näytä kuin kolme baihtoehtoa! Saako returniin jotenkin loopin?
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        while (i < vastaukset.size()) {
+            String rivi = vastaukset.get(i);
+            sb.append("\n").append(rivi);
+            i++;
+        }
+        String tulos = sb.toString();
+        return kysymysteksti + tulos;
+        //nyt toimii looppi
     }
 }
 
